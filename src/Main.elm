@@ -460,7 +460,7 @@ mission model =
         , hide 0
         , msBullet "Empowerment" "Equipping parents with the skills for a nurturing home."
         , msBullet "Intervention" "Stepping in before families reach the point of separation."
-        , msBullet "Education" "Providing a state-approved curriculum tailored for family success."
+        , msBullet "Education" "Providing an evidence based curriculum tailored for family success."
         , msBullet "Support" "Offering advice, guidance, and unwavering commitment at every step."
         , msBullet "Unity" "Strengthening family bonds, ensuring every child grows in love and security."
         ]
