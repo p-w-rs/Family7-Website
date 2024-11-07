@@ -246,7 +246,7 @@ view model =
             ]
             (column [ height fill, width fill, Back.color <| white 1.0 ]
                 [ -- el [] (Maybe.withDefault "nothing" model.stuff |> text)
-                  navbar [ "Mission", "Careers" ] (String.dropLeft 1 model.url.path)
+                  navbar [ "Careers" ] (String.dropLeft 1 model.url.path)
                 , page
                 , footer
                 ]
