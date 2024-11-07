@@ -105,7 +105,6 @@ var/
 
 # Elm projects
 elm-stuff/
-elm-package.json
 
 # Web projects
 /node_modules/
