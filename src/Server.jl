@@ -1,7 +1,7 @@
 using HTTP, Oxygen, StructTypes, Base.Threads
 
-include("EMAIL_PY.jl")
-using .EMAIL
+#include("EMAIL_PY.jl")
+#using .EMAIL
 
 include("PreloadedAssets.jl")
 using .PreloadedAssets
@@ -17,7 +17,7 @@ end
     return html(index_html)
 end
 
-@get "/teachers" function(req::HTTP.Request)
+#=@get "/teachers" function(req::HTTP.Request)
     return html(teachers_html)
 end
 
@@ -35,6 +35,6 @@ candidate_message(name) = "Hello $name,\n\nThank you for your interest in Family
     send_email("Family 7 Recruiting", "do-not-reply@family7f.com", "careers@family7f.com", "New Application", admin_message(name, email, other), [filename])
     send_email("Family 7 Recruiting", "do-not-reply@family7f.com", email, "Thank you for you application", candidate_message(name))
     return html("OK")
-end
+    end=#
 
 serveparallel()

@@ -232,9 +232,6 @@ view model =
                 "/policy" ->
                     policy
 
-                "/security" ->
-                    security
-
                 _ ->
                     page404
     in
@@ -249,7 +246,7 @@ view model =
             ]
             (column [ height fill, width fill, Back.color <| white 1.0 ]
                 [ -- el [] (Maybe.withDefault "nothing" model.stuff |> text)
-                  navbar [ "Mission", "Stories", "Careers" ] (String.dropLeft 1 model.url.path)
+                  navbar [ "Mission", "Careers" ] (String.dropLeft 1 model.url.path)
                 , page
                 , footer
                 ]
@@ -348,34 +345,86 @@ footer =
             [ fheader "Legal"
             , flink "Site Terms of Use" "/terms"
             , flink "Privacy Policy" "/policy"
-            , flink "Security" "/security"
             ]
         ]
 
 
 
 -- VIEW :: PAGES
+{- home model =
+   column [ height fill, width fill, paddingXY 35 50, spacing 75 ]
+       [ row [ width fill, spacing 50 ]
+           [ paragraph [ width fill ]
+               [ el [ Font.size 20, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Family 7 Foundations")
+               , text " is a dedicated organization working hand-in-hand with state authorities to provide pivotal social work services for families at risk. Our primary goal is to "
+               , el [ Font.size 20, Font.bold, Font.color <| f7f_blue 1.0 ] (text "keep families intact")
+               , text ", offering a lifeline to parents who are on the verge of losing their children to state custody or face limited visitation rights. Through our home-based training sessions, our specialized teachers deliver an "
+               , el [ Font.size 20, Font.bold, Font.color <| f7f_blue 1.0 ] (text "expertly crafted curriculum")
+               , text ", ensuring parents are well-equipped with the essential skills, knowledge, and understanding required to create a safe, nurturing environment for their children."
+               ]
+           , image [ width fill, Border.glow (f7f_blue 1.0) 3 ]
+               { src = family_front
+               , description = "A picture of a happy family"
+               }
+           ]
+       , paragraph [ width fill, Font.size 25 ]
+           [ el [ Font.size 28, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Family 7 Foundations")
+           , text " is the bridge between at-risk families and the brighter future they deserve, offering tailored training and support to ensure every child remains in a loving, safe home."
+           ]
+       ]
+-}
+
+
+homeBullet the_text =
+    row [ height fill, spacing 20 ]
+        [ el [ alignLeft, Font.size 50, Font.bold, Font.color <| f7f_blue 1.0 ] (text "•")
+        , paragraph [ alignRight, Font.size 32 ] [ text the_text ]
+        ]
 
 
 home model =
     column [ height fill, width fill, paddingXY 35 50, spacing 75 ]
-        [ row [ width fill, spacing 50 ]
-            [ paragraph [ width fill ]
-                [ el [ Font.size 20, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Family 7 Foundations")
-                , text " is a dedicated organization working hand-in-hand with state authorities to provide pivotal social work services for families at risk. Our primary goal is to "
-                , el [ Font.size 20, Font.bold, Font.color <| f7f_blue 1.0 ] (text "keep families intact")
-                , text ", offering a lifeline to parents who are on the verge of losing their children to state custody or face limited visitation rights. Through our home-based training sessions, our specialized teachers deliver an "
-                , el [ Font.size 20, Font.bold, Font.color <| f7f_blue 1.0 ] (text "expertly crafted curriculum")
-                , text ", ensuring parents are well-equipped with the essential skills, knowledge, and understanding required to create a safe, nurturing environment for their children."
+        [ wrappedRow [ width fill, spacing 50 ]
+            [ paragraph [ width fill, Font.size 25 ]
+                [ el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Family 7 Foundations")
+                , text " is a contracted provider for the State of Utah. We are a comprehensive, in-home, "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "ADAPTIVE")
+                , text " program that serves families where one or of both parents struggle with an "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Intellectual Disability OR Related Cause")
+                , text " such as: "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "ADHD")
+                , text ", "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "PTSD")
+                , text ", "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Addiction")
+                , text ", "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Dyslexia")
+                , text ", "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "TBI")
+                , text ", "
+                , el [ Font.size 26, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Low IQ")
+                , text ", or any other intellectual disability that needs extra support to learn and retain information."
                 ]
             , image [ width fill, Border.glow (f7f_blue 1.0) 3 ]
                 { src = family_front
                 , description = "A picture of a happy family"
                 }
             ]
+        , hide 0
+        , column [ width fill, Font.size 25, spacing 35 ]
+            [ el [ Font.size 28, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Our Program Includes:")
+            , homeBullet "Evidence based curriculum"
+            , homeBullet "24 teachers across the state"
+            , homeBullet "25, 90-minute-long sessions of in-home education and support for the family"
+            , homeBullet "A weekly partner report sent to the case manager sharing progress and/or concerns"
+            , homeBullet "Adaptable curriculum to meet caseworker’s concerns, parent’s abilities and much more"
+            , homeBullet "The 5 protective factors"
+            , homeBullet "Child safety, discipline, organization, routines, finances, co-parenting, home and personal hygiene, among many other topics are covered in this comprehensive course."
+            ]
+        , hide 0
         , paragraph [ width fill, Font.size 25 ]
             [ el [ Font.size 28, Font.bold, Font.color <| f7f_blue 1.0 ] (text "Family 7 Foundations")
-            , text " is the bridge between at-risk families and the brighter future they deserve, offering tailored training and support to ensure every child remains in a loving, safe home."
+            , text " is ready to help. Please consider referring your families that qualify for these enlightening and empowering classes. Please follow all directions as outlined by DHHS in referring a family for services."
             ]
         ]
 
@@ -570,6 +619,41 @@ submitMessage error =
                 el [ alignLeft, Font.alignLeft, moveLeft 15, padding 10, Font.color <| f7f_green 1.0 ] (text "Submission Success!\nAwait email confirmation.")
 
 
+
+{- careers : Model -> Element Msg
+   careers model =
+       column [ height fill, width fill, spacing 50, paddingXY 35 50 ]
+           [ paragraph [ centerX, Font.size 60, Font.semiBold ]
+               [ el [ Font.bold, Font.color <| f7f_blue 1.0 ] (text "Be a beacon of hope")
+               , text " – Join our passionate team of educators at Family 7 Foundations and make a lasting impact on families' futures."
+               ]
+           , row [ width fill, spaceEvenly ]
+               [ column [ width (fill |> maximum 600), padding 35, spacing 25, Back.color <| f7f_grey 0.5, Border.width 5, Border.rounded 10, Border.color <| f7f_black 1.0 ]
+                   [ input_form SetName model.name "Enter your name..." "Name (Required)"
+                   , email_form SetEmail model.email "Enter your email..." "Email (Required)"
+                   , input_multi SetOther model.other "Any other information you'd like..." "Extra Info (Optional)"
+                   , hide 0
+                   , blueLine 450
+                   , hide 0
+                   , row [ width fill, spacing 50, centerX ]
+                       [ Input.button
+                           [ focused [], centerX, Font.center, width (px 200), padding 15, mouseOver [ Back.color <| f7f_green 1.0 ], Back.color <| f7f_blue 1.0, Border.width 5, Border.rounded 10, Border.color <| f7f_black 1.0, below <| selectedFile model.resName model.resume ]
+                           { onPress = Just ResumeRequested
+                           , label = text "Upload Resume"
+                           }
+                       , Input.button
+                           [ focused [], centerX, Font.center, width (px 200), padding 15, mouseOver [ Back.color <| f7f_green 1.0 ], Back.color <| f7f_blue 1.0, Border.width 5, Border.rounded 10, Border.color <| f7f_black 1.0, below <| submitMessage model.error ]
+                           { onPress = Just Upload
+                           , label = text "Submit Form"
+                           }
+                       ]
+                   , hide 0
+                   ]
+               ]
+           ]
+-}
+
+
 careers : Model -> Element Msg
 careers model =
     column [ height fill, width fill, spacing 50, paddingXY 35 50 ]
@@ -579,25 +663,13 @@ careers model =
             ]
         , row [ width fill, spaceEvenly ]
             [ column [ width (fill |> maximum 600), padding 35, spacing 25, Back.color <| f7f_grey 0.5, Border.width 5, Border.rounded 10, Border.color <| f7f_black 1.0 ]
-                [ input_form SetName model.name "Enter your name..." "Name (Required)"
-                , email_form SetEmail model.email "Enter your email..." "Email (Required)"
-                , input_multi SetOther model.other "Any other information you'd like..." "Extra Info (Optional)"
-                , hide 0
-                , blueLine 450
-                , hide 0
-                , row [ width fill, spacing 50, centerX ]
-                    [ Input.button
-                        [ focused [], centerX, Font.center, width (px 200), padding 15, mouseOver [ Back.color <| f7f_green 1.0 ], Back.color <| f7f_blue 1.0, Border.width 5, Border.rounded 10, Border.color <| f7f_black 1.0, below <| selectedFile model.resName model.resume ]
-                        { onPress = Just ResumeRequested
-                        , label = text "Upload Resume"
-                        }
-                    , Input.button
-                        [ focused [], centerX, Font.center, width (px 200), padding 15, mouseOver [ Back.color <| f7f_green 1.0 ], Back.color <| f7f_blue 1.0, Border.width 5, Border.rounded 10, Border.color <| f7f_black 1.0, below <| submitMessage model.error ]
-                        { onPress = Just Upload
-                        , label = text "Submit Form"
+                [ paragraph [ Font.center, padding 20 ]
+                    [ text "Interested in joining our team? Please send your resume to:\n"
+                    , link [ Font.size 32, Font.color <| f7f_blue 1.0, mouseOver [ Font.color <| f7f_green 1.0 ] ]
+                        { url = "mailto:hr@family7f.com"
+                        , label = text "hr@family7f.com"
                         }
                     ]
-                , hide 0
                 ]
             ]
         ]
@@ -613,13 +685,6 @@ terms =
 
 policy =
     column [ centerX, height fill ] []
-
-
-security =
-    column [ centerX, height fill ]
-        [ el [] (text "Family 7 Foundations: Security Statement")
-        , el [] (text "At Family 7 Foundations, we are committed to ensuring the security and protection of the information you share with us. This Security Statement outlines the measures we take to safeguard your data and maintain the integrity of our systems. Please read this statement to understand our security practices.")
-        ]
 
 
 page404 =

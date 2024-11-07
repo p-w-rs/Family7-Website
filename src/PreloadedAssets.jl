@@ -6,12 +6,12 @@ file = open("static/index.html", "r")
 index_html = read(file, String)
 close(file)
 
-file = open("static/teachers.html", "r")
+#=file = open("static/teachers.html", "r")
 teachers_html = read(file, String)
 close(file)
 
 file = open("static/admin.html", "r")
 admin_html = read(file, String)
-close(file)
+close(file)=#
 
 end # module
